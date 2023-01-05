@@ -18,12 +18,12 @@
     </modules>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <version.spring-boot>2.5.6</version.spring-boot>
-        <version.camunda>7.16.0</version.camunda>
+        <version.spring-boot>2.7.7</version.spring-boot>
+        <version.camunda>7.19.0-alpha2</version.camunda>
 
     </properties>
 
