@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  * default jdbc url:
- * jdbc:h2:tcp://localhost:9092/mem:camunda
+ * jdbc:h2:tcp://localhost:8089/mem:camunda
  * <p>
  * default console url:
  * http://localhost:9091/h2-console
@@ -21,7 +21,7 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class CamundaDb {
 
-    @Value("${de.rnschk.h2server.jdbcport:9092}")
+    @Value("${de.rnschk.h2server.jdbcport:8089}")
     private String port;
 
     @Value("${de.rnschk.h2server.dbname:camunda}")
