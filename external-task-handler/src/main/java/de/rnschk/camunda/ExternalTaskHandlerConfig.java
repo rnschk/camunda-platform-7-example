@@ -11,11 +11,21 @@ import org.springframework.context.annotation.Configuration;
 public class ExternalTaskHandlerConfig {
     private static final Logger log = LoggerFactory.getLogger(ExternalTaskHandlerConfig.class);
 
+
     @Bean
-    @ExternalTaskSubscription("my-topic")
-    public ExternalTaskHandler myTopicWorker() {
+    @ExternalTaskSubscription("topic1")
+    public ExternalTaskHandler topic1() {
         return (task, service) -> {
-            log.info("doing some work");
+            log.info("doing some work for topic1");
+            service.complete(task);
+        };
+    }
+
+    @Bean
+    @ExternalTaskSubscription("topic2")
+    public ExternalTaskHandler topic2() {
+        return (task, service) -> {
+            log.info("doing some work for topic2");
             service.complete(task);
         };
     }
