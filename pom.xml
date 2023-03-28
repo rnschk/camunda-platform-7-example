@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.rnschk.cam</groupId>
-    <artifactId>cam-arch-test-parent</artifactId>
+    <groupId>de.rnschk.camunda</groupId>
+    <artifactId>camunda-platform-7</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
-        <module>cam-db</module>
-        <module>cam-api</module>
-        <module>cam-webapp</module>
-        <module>external-handler</module>
-        <module>process-1</module>
-        <module>process-2</module>
+        <module>camunda-db</module>
+        <module>camunda-rest-api</module>
+        <module>camunda-webapp</module>
+        <module>external-task-handler</module>
+        <module>process-solution-1</module>
+        <module>process-solution-2</module>
     </modules>
 
     <properties>
