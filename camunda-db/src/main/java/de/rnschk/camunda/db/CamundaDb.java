@@ -21,25 +21,25 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class CamundaDb {
 
-    @Value("${de.rnschk.h2server.jdbcport:8089}")
-    private String port;
+  @Value("${de.rnschk.h2server.jdbcport:8089}")
+  private String port;
 
-    @Value("${de.rnschk.h2server.dbname:camunda}")
-    private String dbname;
+  @Value("${de.rnschk.h2server.dbname:camunda}")
+  private String dbname;
 
-    @Bean(initMethod = "start", destroyMethod = "stop")
-    public Server h2Server() throws SQLException {
-        return Server.createTcpServer("-tcp", "-tcpPort", port);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(CamundaDb.class, args);
+  }
 
-    @Bean
-    public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
-                                            .setName(dbname)
-                                            .build();
-    }
+  @Bean(initMethod = "start", destroyMethod = "stop")
+  public Server h2Server() throws SQLException {
+    return Server.createTcpServer("-tcp", "-tcpPort", port);
+  }
 
-    public static void main(String[] args) {
-        SpringApplication.run(CamundaDb.class, args);
-    }
+  @Bean
+  public DataSource dataSource() {
+    return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
+            .setName(dbname)
+            .build();
+  }
 }

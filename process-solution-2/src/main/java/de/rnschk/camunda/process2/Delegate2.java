@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Delegate2 implements JavaDelegate {
-    private static final Logger log = LoggerFactory.getLogger(Delegate2.class);
+  private static final Logger log = LoggerFactory.getLogger(Delegate2.class);
 
-    @Override
-    public void execute(final DelegateExecution execution) {
-        log.info("Hello from {}", this.getClass().getSimpleName());
-    }
+  @Override
+  public void execute(final DelegateExecution execution) {
+    log.info("Hello from {}", this.getClass().getSimpleName());
+  }
 }
