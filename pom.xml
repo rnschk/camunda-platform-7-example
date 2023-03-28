@@ -22,8 +22,8 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
-    <version.spring-boot>2.7.9</version.spring-boot>
-    <version.camunda>7.19.0-alpha2</version.camunda>
+    <version.spring-boot>2.7.10</version.spring-boot>
+    <version.camunda>7.19.0-alpha4</version.camunda>
 
   </properties>
 
@@ -66,4 +66,24 @@
 
   </dependencies>
 
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>ch.acanda.maven</groupId>
+        <artifactId>spring-banner-plugin</artifactId>
+        <version>1.5.2</version>
+        <executions>
+          <execution>
+            <id>generate-spring-banner</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
 </project>
