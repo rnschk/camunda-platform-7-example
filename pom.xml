@@ -23,7 +23,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
     <version.spring-boot>2.7.10</version.spring-boot>
-    <version.camunda>7.19.0-alpha4</version.camunda>
+    <version.camunda>7.19.0-alpha2</version.camunda>
 
   </properties>
 
