@@ -1,18 +1,27 @@
 package de.rnschk.camunda.webapp.branding;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-import static de.rnschk.camunda.webapp.branding.CustomBrandingConstants.*;
+import static de.rnschk.camunda.webapp.branding.CustomBrandingConstants.CSS_PLACEHOLDER_BUTTON_COLOR;
+import static de.rnschk.camunda.webapp.branding.CustomBrandingConstants.CSS_PLACEHOLDER_TOP_COLOR;
+import static de.rnschk.camunda.webapp.branding.CustomBrandingConstants.REQUEST_PATH_LOGO;
+import static de.rnschk.camunda.webapp.branding.CustomBrandingConstants.REQUEST_PATH_USER_STYLES;
+import static de.rnschk.camunda.webapp.branding.CustomBrandingConstants.RESOURCE_PATH_CUSTOM_LOGO;
+import static de.rnschk.camunda.webapp.branding.CustomBrandingConstants.RESOURCE_PATH_CUSTOM_STYLES;
 import static java.lang.Thread.currentThread;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Objects.nonNull;
