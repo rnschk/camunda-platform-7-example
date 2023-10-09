@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import static org.camunda.spin.plugin.variable.SpinValues.jsonValue;
 
 @Configuration
-public class Delegates {
-    private static final Logger log = LoggerFactory.getLogger(Delegates.class);
+public class DelegatesConfig {
+    private static final Logger log = LoggerFactory.getLogger(DelegatesConfig.class);
 
     @Bean
     public JavaDelegate delegate1() {
