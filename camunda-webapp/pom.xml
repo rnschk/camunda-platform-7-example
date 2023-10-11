@@ -34,6 +34,13 @@
         </dependency>
 
         <dependency>
+            <!-- https://github.com/holunda-io/camunda-platform-7-autologin -->
+            <groupId>io.holunda</groupId>
+            <artifactId>camunda-platform-7-autologin</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
