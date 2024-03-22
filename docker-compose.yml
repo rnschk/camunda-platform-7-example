@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres
+    hostname: postgres
+    container_name: postgres
+    env_file:
+      - cam_env/camunda.env
+#    ports:
+#      - "5432:5432"
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  camunda-rest-api:
+    image: camunda-rest-api:latest
+    hostname: camunda-rest-api
+    env_file:
+      - cam_env/camunda.env
+    depends_on:
+      - postgres
+    container_name: camunda-rest-api
+    ports:
+      - "8090:8080"
+    restart: unless-stopped
+
+  camunda-webapp:
+    image: camunda-webapp:latest
+    hostname: camunda-webapp
+    env_file:
+      - cam_env/camunda.env
+    depends_on:
+      - postgres
+    container_name: camunda-webapp
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  process-solution-1:
+    image: process-solution-1
+    hostname: ps1
+    env_file:
+      - cam_env/camunda.env
+    depends_on:
+      - postgres
+    container_name: ps1
+    restart: unless-stopped
+
+  process-solution-2:
+    image: process-solution-2
+    hostname: ps2
+    env_file:
+      - cam_env/camunda.env
+    depends_on:
+      - postgres
+    container_name: ps2
+    restart: unless-stopped
+
+  external-task-hanlder:
+    image: external-task-handler
+    environment:
+      - CAMUNDA_BPM_CLIENT_BASE-URL=http://camunda-rest-api:8080/engine-rest
+    hostname: eth
+    depends_on:
+      - camunda-rest-api
+    container_name: eth
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
