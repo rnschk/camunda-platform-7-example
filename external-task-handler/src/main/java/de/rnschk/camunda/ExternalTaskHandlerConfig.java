@@ -1,16 +1,21 @@
 package de.rnschk.camunda;
 
+import lombok.extern.slf4j.Slf4j;
+import org.camunda.bpm.client.backoff.BackoffStrategy;
+import org.camunda.bpm.client.backoff.ExponentialBackoffStrategy;
 import org.camunda.bpm.client.spring.annotation.ExternalTaskSubscription;
 import org.camunda.bpm.client.task.ExternalTaskHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@Slf4j
 @Configuration
 public class ExternalTaskHandlerConfig {
-    private static final Logger log = LoggerFactory.getLogger(ExternalTaskHandlerConfig.class);
 
+    @Bean
+    public BackoffStrategy backoffStrategy() {
+        return new ExponentialBackoffStrategy(1000L, 2, 300000L);
+    }
 
     @Bean
     @ExternalTaskSubscription("topic1")

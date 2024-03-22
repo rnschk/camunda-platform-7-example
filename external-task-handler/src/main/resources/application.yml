@@ -1,18 +1,14 @@
 camunda.bpm.client:
   base-url: http://localhost:8090/engine-rest
   lock-duration: 10000
-  async-response-timeout: 30000
+  async-response-timeout: 20000
+  disable-backoff-strategy: true
 
 logging:
   level:
+    root: warn
     de.rnschk: debug
     org.camunda.bpm.client: debug
-    root: warn
 
-de:
-  viadee:
-    bpm:
-      camunda:
-        external-task:
-          retry-config:
-            default-behavior: R0/PT1M
+de.viadee.bpm.camunda.external-task.retry-config:
+  default-behavior: R1/PT1M
