@@ -1,0 +1,10 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/camunda
+        type: org.postgresql.jdbc2.optional.SimpleDataSource
+        driver-class-name: org.postgresql.Driver
+        username: ${POSTGRES_USER}
+        password: ${POSTGRES_PASSWORD}
+    h2:
+        console:
+            enabled: false
