@@ -5,10 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableProcessApplication("process-app-1")
-public class ProcessApp1 {
+@EnableProcessApplication("process-solution-1")
+public class ProcessSolution1 {
 
   public static void main(String[] args) {
-    SpringApplication.run(ProcessApp1.class, args);
+    SpringApplication.run(ProcessSolution1.class, args);
   }
 }
