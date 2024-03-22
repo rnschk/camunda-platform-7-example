@@ -1,89 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>de.rnschk.camunda</groupId>
-  <artifactId>camunda-platform-7</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0.0</version>
-  <modules>
-    <module>camunda-db</module>
-    <module>camunda-rest-api</module>
-    <module>camunda-webapp</module>
-    <module>external-task-handler</module>
-    <module>process-solution-1</module>
-    <module>process-solution-2</module>
-  </modules>
+    <groupId>de.rnschk.camunda</groupId>
+    <artifactId>camunda-platform-7</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
 
-  <properties>
-    <java.version>17</java.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <modules>
+        <module>camunda-db</module>
+        <module>camunda-rest-api</module>
+        <module>camunda-webapp</module>
+        <module>external-task-handler</module>
+        <module>process-solution-1</module>
+        <module>process-solution-2</module>
+    </modules>
 
-    <version.spring-boot>3.1.4</version.spring-boot>
-    <version.camunda>7.20.0</version.camunda>
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 
-  </properties>
+        <version.spring-boot>3.1.4</version.spring-boot>
+        <version.camunda>7.20.0</version.camunda>
 
-  <dependencyManagement>
+        <version.h2>1.4.200</version.h2>
+        <version.postgresql>42.7.1</version.postgresql>
+
+        <version.jaxb-api>2.3.1</version.jaxb-api>
+        <version.jakarta-api>2.1.1</version.jakarta-api>
+        <version.lombok>1.18.32</version.lombok>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${version.spring-boot}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-bom</artifactId>
+                <version>${version.camunda}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${version.h2}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${version.postgresql}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${version.lombok}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
     <dependencies>
 
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${version.spring-boot}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${version.jaxb-api}</version>
+        </dependency>
 
-      <dependency>
-        <groupId>org.camunda.bpm</groupId>
-        <artifactId>camunda-bom</artifactId>
-        <version>${version.camunda}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-
-      <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>1.4.200</version>
-      </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${version.jakarta-api}</version>
+        </dependency>
 
     </dependencies>
-  </dependencyManagement>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.12.1</version>
+                    <configuration>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${version.lombok}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
 
-  <dependencies>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${version.spring-boot}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>build-info</goal>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
 
-    <dependency>
-      <groupId>javax.xml.bind</groupId>
-      <artifactId>jaxb-api</artifactId>
-      <version>2.3.1</version>
-    </dependency>
+        <plugins>
+            <plugin>
+                <groupId>ch.acanda.maven</groupId>
+                <artifactId>spring-banner-plugin</artifactId>
+                <version>1.5.2</version>
+                <executions>
+                    <execution>
+                        <id>generate-spring-banner</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
 
-  </dependencies>
+    </build>
 
-  <build>
-    <plugins>
-
-      <plugin>
-        <groupId>ch.acanda.maven</groupId>
-        <artifactId>spring-banner-plugin</artifactId>
-        <version>1.5.2</version>
-        <executions>
-          <execution>
-            <id>generate-spring-banner</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-    </plugins>
-  </build>
 </project>
