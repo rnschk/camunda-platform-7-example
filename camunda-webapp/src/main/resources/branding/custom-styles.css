@@ -1,3 +1,8 @@
+/* hide eol-banner */
+.ce-eol-banner {
+    display: none;
+}
+
 :root {
     --custom-header-color: ${custom-top-color};
     --custom-button-color: ${custom-button-color};
