@@ -8,8 +8,7 @@ camunda.bpm.client:
 logging:
   level:
     root: warn
-    de.rnschk: debug
-    org.camunda.bpm.client: debug
+    de.rnschk: info
 
 de.viadee.bpm.camunda.external-task.retry-config:
   default-behavior: R1/PT1M
