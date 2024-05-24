@@ -25,6 +25,7 @@
 
         <version.spring-boot>3.2.4</version.spring-boot>
         <version.camunda>7.21.0</version.camunda>
+        <version.camunda-ee>7.21.0-ee</version.camunda-ee>
 
         <version.h2>1.4.200</version.h2>
         <version.postgresql>42.7.1</version.postgresql>
@@ -44,6 +45,14 @@
                 <version>${version.spring-boot}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-bom</artifactId>
+                <version>${version.camunda-ee}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
 
             <dependency>
