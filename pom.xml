@@ -11,6 +11,7 @@
 
     <modules>
         <module>camunda-db</module>
+        <module>camunda-db-schema-service</module>
         <module>camunda-rest-api</module>
         <module>camunda-webapp</module>
         <module>external-task-handler</module>

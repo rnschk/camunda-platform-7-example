@@ -8,3 +8,5 @@ camunda:
             max-wait: 2000
             wait-time-in-millis: 1000
         process-engine-name: process_solution_2
+        database:
+            schema-update: false

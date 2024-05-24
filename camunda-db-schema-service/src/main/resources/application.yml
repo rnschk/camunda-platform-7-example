@@ -1,0 +1,9 @@
+spring:
+    liquibase:
+        change-log: db/changelog/db.changelog-master.yaml
+        enabled: true
+
+logging:
+    level:
+        root: warn
+        de.rnschk.camunda.db: info

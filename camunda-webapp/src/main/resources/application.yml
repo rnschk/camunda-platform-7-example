@@ -8,6 +8,8 @@ camunda:
             first-name: Florian
             last-name: viadee
         default-serialization-format: application/json
+        database:
+            schema-update: false
         filter:
             create: All
         job-execution:
