@@ -17,7 +17,7 @@
 
         <dependency>
             <groupId>org.camunda.bpm.springboot</groupId>
-            <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+            <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -48,12 +48,6 @@
             <artifactId>camunda-platform-7-autologin</artifactId>
             <version>0.1.0</version>
         </dependency>
-
-        <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
