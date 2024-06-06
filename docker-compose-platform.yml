@@ -19,6 +19,7 @@ services:
     restart: unless-stopped
 
   camunda-db-schema-service:
+    build: ./camunda-db-schema-service
     image: camunda-db-schema-service:latest
     hostname: camunda-db-schema-service
     env_file:
@@ -29,6 +30,7 @@ services:
     restart: no
 
   camunda-rest-api:
+    build: ./camunda-rest-api
     image: camunda-rest-api:latest
     hostname: camunda-rest-api
     env_file:
@@ -41,6 +43,7 @@ services:
     restart: unless-stopped
 
   camunda-webapp:
+    build: ./camunda-webapp
     image: camunda-webapp:latest
     hostname: camunda-webapp
     env_file:

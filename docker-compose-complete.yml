@@ -18,51 +18,67 @@ services:
       - postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
 
+  camunda-db-schema-service:
+    build: ./camunda-db-schema-service
+    image: camunda-db-schema-service:latest
+    hostname: camunda-db-schema-service
+    env_file:
+      - cam_env/camunda.env
+    depends_on:
+      - postgres
+    container_name: camunda-db-schema-service
+    restart: no
+
   camunda-rest-api:
+    build: ./camunda-rest-api
     image: camunda-rest-api:latest
     hostname: camunda-rest-api
     env_file:
       - cam_env/camunda.env
     depends_on:
-      - postgres
+      - camunda-db-schema-service
     container_name: camunda-rest-api
     ports:
       - "8090:8080"
     restart: unless-stopped
 
   camunda-webapp:
+    build: ./camunda-webapp
     image: camunda-webapp:latest
     hostname: camunda-webapp
     env_file:
       - cam_env/camunda.env
     depends_on:
-      - postgres
+      - camunda-db-schema-service
     container_name: camunda-webapp
     ports:
       - "8080:8080"
     restart: unless-stopped
 
   process-solution-1:
+    build: ./process-solution-1
     image: process-solution-1
     hostname: ps1
     env_file:
       - cam_env/camunda.env
     depends_on:
-      - postgres
+      - camunda-db-schema-service
     container_name: ps1
     restart: unless-stopped
 
   process-solution-2:
+    build: ./process-solution-2
     image: process-solution-2
     hostname: ps2
     env_file:
       - cam_env/camunda.env
     depends_on:
-      - postgres
+      - camunda-db-schema-service
     container_name: ps2
     restart: unless-stopped
 
   external-task-hanlder:
+    build: ./external-task-handler
     image: external-task-handler
     environment:
       - CAMUNDA_BPM_CLIENT_BASE-URL=http://camunda-rest-api:8080/engine-rest
