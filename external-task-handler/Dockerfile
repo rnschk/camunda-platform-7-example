@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:21
 
 COPY target/*.jar /opt/app/app.jar
 

@@ -18,13 +18,23 @@ services:
       - postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
 
+  camunda-db-schema-service:
+    image: camunda-db-schema-service:latest
+    hostname: camunda-db-schema-service
+    env_file:
+      - cam_env/camunda.env
+    depends_on:
+      - postgres
+    container_name: camunda-db-schema-service
+    restart: no
+
   camunda-rest-api:
     image: camunda-rest-api:latest
     hostname: camunda-rest-api
     env_file:
       - cam_env/camunda.env
     depends_on:
-      - postgres
+      - camunda-db-schema-service
     container_name: camunda-rest-api
     ports:
       - "8090:8080"
@@ -36,7 +46,7 @@ services:
     env_file:
       - cam_env/camunda.env
     depends_on:
-      - postgres
+      - camunda-db-schema-service
     container_name: camunda-webapp
     ports:
       - "8080:8080"
