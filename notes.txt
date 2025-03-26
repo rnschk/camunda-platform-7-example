@@ -1,0 +1,1 @@
+mvn -s ~/Workspace/m2_settings/camunda_ee_settings.xml clean package && docker-compose --file docker-compose-platform.yml build
