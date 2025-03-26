@@ -26,6 +26,16 @@
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
     </dependency>
+
+    <!-- take sql scripts from here: -->
+    <!--
+    <dependency>
+      <groupId>org.camunda.bpm.distro</groupId>
+      <artifactId>camunda-sql-scripts</artifactId>
+      <version>${version.camunda}</version>
+    </dependency>
+    -->
+
   </dependencies>
 
 
