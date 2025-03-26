@@ -1,0 +1,61 @@
+###
+GET http://localhost:8090/engine-rest/history/process-instance/count
+
+
+###
+POST http://localhost:8090/engine-rest/history/process-instance/count
+Content-Type: application/json
+
+{
+  "completed": true
+}
+
+###
+POST http://localhost:8090/engine-rest/history/process-instance/count
+Content-Type: application/json
+
+{
+  "externallyTerminated": true
+}
+
+
+###
+POST http://localhost:8090/engine-rest/history/process-instance/count
+Content-Type: application/json
+
+{
+  "orQueries": [
+    {
+      "completed": true
+    }
+  ]
+}
+
+###
+POST http://localhost:8090/engine-rest/history/process-instance/count
+Content-Type: application/json
+
+{
+  "orQueries": [
+    {
+      "externallyTerminated": true
+    }
+  ]
+}
+
+
+###
+POST http://localhost:8090/engine-rest/history/process-instance/count
+Content-Type: application/json
+
+{
+  "finishedAfter": "2013-01-23T14:42:45.000+0200",
+  "orQueries": [
+    {
+      "externallyTerminated": true
+    },
+    {
+      "completed": true
+    }
+  ]
+}
