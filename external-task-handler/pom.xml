@@ -21,7 +21,7 @@
         <dependency>
             <groupId>de.viadee.bpm.camunda</groupId>
             <artifactId>external-task-retry-aspect-spring-boot-starter</artifactId>
-            <version>1.8.1</version>
+            <version>1.9.1</version>
         </dependency>
 
     </dependencies>
