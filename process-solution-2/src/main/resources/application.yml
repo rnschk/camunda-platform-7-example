@@ -10,3 +10,6 @@ camunda:
         process-engine-name: process_solution_2
         database:
             schema-update: false
+    generic-properties:
+        properties:
+            historyTimeToLive: P100D

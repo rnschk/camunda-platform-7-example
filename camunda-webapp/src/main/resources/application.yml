@@ -20,6 +20,9 @@ camunda:
         login:
             enabled: true
             user-id: fr
+        generic-properties:
+            properties:
+                historyTimeToLive: P100D
 de:
     rnschk:
         bpm:

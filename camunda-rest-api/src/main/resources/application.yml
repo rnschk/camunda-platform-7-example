@@ -6,6 +6,9 @@ camunda:
             enabled: true
         database:
             schema-update: false
+    generic-properties:
+        properties:
+            historyTimeToLive: P100D
 
 server:
     port: 8080
