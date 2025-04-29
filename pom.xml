@@ -24,17 +24,17 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <version.spring-boot>3.2.4</version.spring-boot>
-        <version.camunda>7.22.0</version.camunda>
-        <version.camunda-ee>7.22.3-ee</version.camunda-ee>
+        <version.spring-boot>3.4.5</version.spring-boot>
+        <version.camunda>7.23.0</version.camunda>
+        <version.camunda-ee>7.23.0-ee</version.camunda-ee>
 
-        <version.h2>1.4.200</version.h2>
-        <version.postgresql>42.7.1</version.postgresql>
+        <version.h2>2.3.232</version.h2>
+        <version.postgresql>42.7.5</version.postgresql>
 
         <version.jaxb-api>2.3.1</version.jaxb-api>
         <version.jakarta-api>2.1.1</version.jakarta-api>
         <version.jakarta.bind-api>4.0.2</version.jakarta.bind-api>
-        <version.lombok>1.18.32</version.lombok>
+        <version.lombok>1.18.38</version.lombok>
 
     </properties>
 
